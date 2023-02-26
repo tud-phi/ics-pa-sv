@@ -1,0 +1,100 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ics_pa"
+description="Practical Assignment for the course Intelligent Control Systems at Delft University of Technology"
+version = "0.0.1"
+authors = [
+    { name = "Maximilian Stölzle", email = "M.W.Stolzle@tudelft.nl"},
+    { name = "Tomás Coleman", email = "T.Coleman@tudelft.nl" },
+    { name = "Jingyue Liu", email = "J.Liu-28@student.tudelft.nl" },
+    { name = "Chuhan Zhang", email = "C.Zhang-8@tudelft.nl" },
+]
+requires-python = "==3.10.*"
+dependencies = [
+    "dill",
+    "flax<0.7",
+    "jax",
+    "ipynb", # used for importing modules from notebooks
+    "ipykernel",
+    "matplotlib",
+    "nbgrader",
+    "numpy",
+    "opencv-python",
+    "optax",
+    "pandas",
+    "progressbar2",
+    "pyqt5",
+    "seaborn",
+    "scipy",
+    "snntorch",
+    "tonic",
+    "tensorboard",
+    "torch==1.12.1",
+    "torchvision==0.13.1",
+    "tqdm",
+]
+license = {text = "MIT"}
+classifiers = [  # Optional
+        # How mature is this project? Common values are
+        #   3 - Alpha
+        #   4 - Beta
+        #   5 - Production/Stable
+        'Development Status :: 3 - Alpha',
+
+        # Indicate who your project is intended for
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Build Tools',
+
+        # Pick your license as you wish
+        'License :: OSI Approved :: MIT License',
+
+        # Specify the Python versions you support here. In particular, ensure
+        # that you indicate you support Python 3. These classifiers are *not*
+        # checked by 'pip install'. See instead 'python_requires' below.
+        'Programming Language :: Python :: 3',
+        "Programming Language :: Python :: 3.10",
+        'Programming Language :: Python :: 3 :: Only',
+]
+# dynamic = ["version", "readme"]
+
+[project.optional-dependencies]
+dev = [
+    "black[jupyter]",
+    "bump2version",
+    "codecov",
+    "coverage",
+    "flake8",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "pytest-html",
+    "sympy",
+    "tox",
+]
+
+[tool.setuptools.packages.find]
+include = ["jax_double_pendulum"]
+
+[tool.black]
+# https://github.com/psf/black
+target-version = ["py310"]
+line-length = 88
+color = true
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | env
+    | venv
+)/
+'''

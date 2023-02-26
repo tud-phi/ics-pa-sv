@@ -1,0 +1,7 @@
+name: ics
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ffmpeg
+  - python=3.10 # Python! Not using latest version as some libs lack support
